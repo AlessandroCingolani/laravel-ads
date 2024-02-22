@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+
+
 
 class CookieController extends Controller
 {
@@ -12,7 +13,8 @@ class CookieController extends Controller
         $ads = [
             'name' => 'premium',
             'price' => 9.25,
-            'month' => 12
+            'duration' => 1,
+            'discount' => 20
 
         ];
         return response()->json(compact('ads'));
