@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CookieController;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::get('/ads', [CookieController::class, 'index']);
+Route::get('/get-session', [CookieController::class, 'session'])->middleware('web');
+Route::post('/salva-valore-in-sessione', [CookieController::class, 'saveSession']);
