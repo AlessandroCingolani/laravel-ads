@@ -38,17 +38,13 @@ class CookieController extends Controller
     public function session(Request $request)
     {
 
+        $header = $request->header();
+        $session_id = session()->getId();
+        session(['close_ads' => false]);
+        $session = Session::all();
 
-        // Ottieni il valore dalla sessione
-        $valore = Session::all();
 
 
-        // Esegui le azioni necessarie basate sul valore
-        if ($valore) {
-            return response()->json(compact('valore'));
-        } else {
-            return response()->json(compact('valore'));
-        }
-        // Restituisci una risposta o fai altro...
+        return response()->json(compact('session', 'session_id', 'header'));
     }
 }
