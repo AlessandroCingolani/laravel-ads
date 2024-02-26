@@ -27,7 +27,7 @@ class CookieController extends Controller
         $valore = $request->input('valore');
         // Salva il valore in sessione
 
-        Session::put('modal_disattivato', $valore);
+        Session::put('close_ads', $valore);
         $disable_modal = Session::all();
 
 
@@ -40,7 +40,12 @@ class CookieController extends Controller
 
         $header = $request->header();
         $session_id = session()->getId();
-        session(['close_ads' => false]);
+        if ($request->session()->exists('close_ads')) {
+            session(['close_ads' => true]);
+        } else {
+
+            session(['close_ads' => false]);
+        }
         $session = Session::all();
 
 
