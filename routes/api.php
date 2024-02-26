@@ -21,5 +21,5 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::get('/ads', [CookieController::class, 'index']);
-Route::get('/get-session', [CookieController::class, 'session'])->middleware('web');
+Route::get('/get-session', [CookieController::class, 'session']);
 Route::post('/salva-valore-in-sessione', [CookieController::class, 'saveSession']);
